@@ -9,12 +9,12 @@ namespace KrelosesBankingApp
 {
     public class BankTransaction
     {
-        public decimal Amount { get; set; }
-        public DateTime TransactionDate { get; set; }
+        public decimal Amount { get; }
+        public DateTime Date { get; }
         public BankTransaction(decimal _amount)
         {
             Amount = _amount;
-            TransactionDate = DateTime.Now;
+            Date = DateTime.Now;
         }
     }
 }

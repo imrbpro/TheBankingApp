@@ -13,12 +13,7 @@ namespace KrelosesBankingApp
         {
             get
             {
-                decimal balance = 0;
-                foreach(var transaction in bankTransactions)
-                {
-                    balance += transaction.Amount;
-                }
-                return balance;
+                return bankTransactions.Sum(transaction => transaction.Amount);
             }
         }
 
@@ -51,7 +46,7 @@ namespace KrelosesBankingApp
                 Console.WriteLine("Sorry.. Insufficient Fund Request");
                 return;
             }
-            var transaction = new BankTransaction(_amount);
+            var transaction = new BankTransaction(_amount*-1);
             bankTransactions.Add(transaction);
             Console.WriteLine(_amount + " Withdrawn from your Account..");
         }
